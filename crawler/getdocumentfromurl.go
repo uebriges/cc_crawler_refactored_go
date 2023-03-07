@@ -18,7 +18,6 @@ func GetDocumentFromURL(url string) (*goquery.Document, error) {
 	defer res.Body.Close()
 
 	if res.StatusCode != 200 {
-		//		log.Fatalf()
 		return nil, fmt.Errorf("unexpected status code %d: %s", res.StatusCode, res.Status)
 	}
 

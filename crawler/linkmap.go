@@ -16,12 +16,6 @@ func NewLinkMap() *LinkMap {
 // ContainsLink checks if link already exists
 // in map and returns true/false
 func (lm LinkMap) containsLink(newLink string) (containsLink bool) {
-	// Ignore some relative links
-	// Possible improvement would need to keep track of "link level"
-	// if strings.Contains(newLink, "../") || strings.HasPrefix(newLink, "page-") || !strings.HasPrefix(newLink, "catalogue/") {
-	// 	// fmt.Printf("Links ignored: %s\n", newLink)
-	// 	return true
-	// }
 	lm.RLock()
 	defer lm.RUnlock()
 	_, containsLink = lm.entries[newLink]
